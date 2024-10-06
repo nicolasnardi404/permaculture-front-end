@@ -1,7 +1,5 @@
-"use client";
-
 import React, { useState } from "react";
-import styles from "./styles/page.module.css"; // Update this line
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [input, setInput] = useState("");
