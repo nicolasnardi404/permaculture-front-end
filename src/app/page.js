@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./page.module.css"; // Update this line
+import { saveAs } from "file-saver";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -11,6 +12,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [generatedImage, setGeneratedImage] = useState(null);
   const messagesEndRef = useRef(null);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -47,7 +49,7 @@ export default function Home() {
   };
 
   const handleGenerateImage = async () => {
-    setIsLoading(true);
+    setIsGenerating(true);
     try {
       const conversation = messages.map((msg) => msg.text).join(" ");
       const response = await fetch("http://localhost:8000/generate-image", {
@@ -56,17 +58,39 @@ export default function Home() {
         body: JSON.stringify({ message: conversation }),
       });
       const data = await response.json();
-      if (data.image_path) {
-        setGeneratedImage(`http://localhost:8000/${data.image_path}`);
+      if (data.image_data) {
+        setGeneratedImage(data.image_data);
       } else {
         console.error("Error generating image:", data.error);
       }
     } catch (error) {
       console.error("Error:", error);
     } finally {
-      setIsLoading(false);
+      setIsGenerating(false);
     }
   };
+
+  const handleDownloadImage = () => {
+    if (generatedImage) {
+      // Convert base64 to Blob
+      const byteString = atob(generatedImage.split(",")[1]);
+      const mimeString = generatedImage
+        .split(",")[0]
+        .split(":")[1]
+        .split(";")[0];
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+      for (let i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+      }
+      const blob = new Blob([ab], { type: mimeString });
+
+      // Save the Blob as a file
+      saveAs(blob, "generated-image.png");
+    }
+  };
+
+  const isConversationEmpty = messages.length === 0;
 
   return (
     <div className={styles.container}>
@@ -102,19 +126,29 @@ export default function Home() {
       </div>
       <button
         onClick={handleGenerateImage}
-        disabled={isLoading || messages.length === 0}
         className={styles.generateButton}
+        disabled={isGenerating || isConversationEmpty}
       >
-        Generate Image
+        {isGenerating ? "Generating..." : "Generate Image"}
       </button>
+      {isGenerating && (
+        <p className={styles.loadingMessage}>
+          Generating image... This may take a moment.
+        </p>
+      )}
       {generatedImage && (
         <div className={styles.imageContainer}>
-          <Image
+          <img
             src={generatedImage}
             alt="Generated Image"
-            width={500}
-            height={500}
+            className={styles.generatedImage}
           />
+          <button
+            onClick={handleDownloadImage}
+            className={styles.downloadButton}
+          >
+            Download Image
+          </button>
         </div>
       )}
     </div>

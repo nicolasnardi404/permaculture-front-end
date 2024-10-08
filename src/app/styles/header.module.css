@@ -42,5 +42,5 @@
 }
 
 .navLink:hover, .navLink.active {
-  color: var(--orange-peel);
+  color: var(--turquoise);
 }

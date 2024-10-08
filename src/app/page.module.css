@@ -173,6 +173,9 @@ a.secondary {
 .chatContainer {
   background-color: var(--dark-slate-gray);
   border: 1px solid var(--dark-cyan);
+  padding: 1rem;
+  border-radius: 18px;
+  font-size: 1.2rem;
 }
 
 .message.user {
@@ -219,12 +222,12 @@ a.secondary {
 .inputForm {
   display: flex;
   padding: 1rem;
-  background-color: var(--dark-cyan);
+  background-color: var(--dark);
 }
 
 .input {
-  background-color: var(--dark-cyan);
-  color: var(--pistachio);
+  background-color: whitesmoke;
+  color: var(--dark-slate-gray);
   flex-grow: 1;
   padding: 0.75rem;
   border: none;
@@ -244,12 +247,17 @@ a.secondary {
   transition: background-color 0.3s ease;
 }
 
+.generateButton {
+ margin: 2em auto;
+ display: block;
+}
+
 .sendButton:hover, .generateButton:hover {
   background-color: var(--orange-peel);
 }
 
 .sendButton:disabled, .generateButton:disabled {
-  background-color: #ccc;
+  background-color: var(--dark-cyan);
   cursor: not-allowed;
 }
 
@@ -262,4 +270,18 @@ a.secondary {
   max-width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.downloadButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.downloadButton:hover {
+  background-color: #45a049;
 }
