@@ -163,3 +163,103 @@ a.secondary {
     filter: invert();
   }
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.chatContainer {
+  background-color: var(--dark-slate-gray);
+  border: 1px solid var(--dark-cyan);
+}
+
+.message.user {
+  background-color: var(--orange-peel);
+  color: var(--dark-slate-gray);
+}
+
+.message.bot {
+  background-color: var(--pistachio);
+  color: var(--dark-slate-gray);
+}
+
+.messagesContainer {
+  height: 400px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.message {
+  max-width: 80%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 18px;
+  line-height: 1.4;
+}
+
+.user {
+  background-color: var(--orange-peel);
+  color: var(--dark-slate-gray);
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.bot {
+  background-color: var(--pistachio);
+  color: var(--dark-slate-gray);
+  align-self: flex-start;
+}
+
+.messageContent {
+  word-wrap: break-word;
+}
+
+.inputForm {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--dark-cyan);
+}
+
+.input {
+  background-color: var(--dark-cyan);
+  color: var(--pistachio);
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+}
+
+.sendButton, .generateButton {
+  background-color: var(--turquoise);
+  color: var(--dark-slate-gray);
+  margin-left: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sendButton:hover, .generateButton:hover {
+  background-color: var(--orange-peel);
+}
+
+.sendButton:disabled, .generateButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.imageContainer {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.imageContainer img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

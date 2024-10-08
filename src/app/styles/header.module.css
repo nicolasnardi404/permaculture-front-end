@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--dark-slate-gray);
+  flex-direction: column;
+}
+
+.logo {
+  border: 4px solid var(--dark-cyan);
+  border-radius: 70px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin: auto;
+}
+
+.title {
+  margin-left: 2rem;
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--dark-slate-gray);
+  font-family: "Afacad Flux", sans-serif;
+  letter-spacing: 0.4rem;
+
+}
+
+.nav {
+  display: flex;
+  gap: 10rem;
+}
+
+.navLink {
+  color: var(--dark-slate-gray);
+  text-decoration: none;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+  font-family: "Afacad Flux", sans-serif;
+}
+
+.navLink:hover, .navLink.active {
+  color: var(--orange-peel);
+}
