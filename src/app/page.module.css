@@ -296,6 +296,8 @@ a.secondary {
   font-size: 1.2em;
 }
 
+
+
 @media (max-width: 768px) {
   .inputForm{
     display: flex;
