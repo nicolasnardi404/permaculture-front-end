@@ -5,91 +5,16 @@
     font-family: Arial, sans-serif;
   }
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #333;
-    padding-bottom: 20px;
-  }
-  
-  .bioLink {
-    text-decoration: none;
-    color: #0070f3;
-    margin-left: 10px;
-  }
-  
-  .chatContainer {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
-    max-height: 400px;
-    overflow-y: auto;
-  }
-  
-  .message {
-    margin-bottom: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .user {
-    background-color: #e6f3ff;
-    text-align: right;
-  }
-  
-  .bot {
-    background-color: #f0f0f0;
-  }
-  
-  .inputForm {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .inputForm input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;
-  }
-  
-  .inputForm button {
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-  }
-  
-  .generateButton {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  .imageContainer {
-    text-align: center;
-  }
-  
   .blogContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
     gap: 30px;
   }
   
   .blogPost {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    background-color: var(--dark-slate-gray);
+    border: 1px solid var(--dark-slate-gray);
     border-radius: 8px;
     padding: 20px;
     transition: transform 0.2s ease-in-out;
@@ -102,31 +27,78 @@
   
   .postTitle {
     font-size: 1.5rem;
-    color: #333;
+    color: var(--orange-peel);
     margin-bottom: 10px;
   }
   
   .postExcerpt {
-    color: #666;
+    color: var(--pistachio);
     margin-bottom: 15px;
     line-height: 1.6;
   }
-  
-  .readMoreLink {
-    display: inline-block;
-    text-decoration: none;
-    color: #0070f3;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
-  }
-  
-  .readMoreLink:hover {
-    color: #0050a0;
-  }
-  
+
   .loading {
     text-align: center;
     font-size: 1.2rem;
     color: #666;
     margin-top: 50px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(140, 192, 132, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ 
+  
+  .modalContent {
+    background: var(--dark-slate-gray); /* Match the card color */
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    color: var(--pistachio);
+    font-size: 1.4rem;
+    text-align: justify;
+  }
+
+  .modalContent h2 {
+    color: var(--orange-peel);
+  }
+  
+  .closeButton {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: var(--pistachio);
+    color: var(--dark-slate-gray);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .closeButton:hover {
+    background: var(--orange-peel);
+    color: var(--dark-slate-gray);
+  }
+  
+  .readMoreButton {
+    background: var(--pistachio);
+    color: var(--dark-slate-gray);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .readMoreButton:hover {
+    background: var(--orange-peel);
+    color: var(--dark-slate-gray);
   }

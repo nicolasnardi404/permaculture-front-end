@@ -7,7 +7,7 @@
 }
 
 .logo {
-  border: 4px solid var(--dark-cyan);
+  border: 4px solid var(--turquoise);
   border-radius: 70px;
 }
 
@@ -22,9 +22,10 @@
   margin-left: 2rem;
   font-size: 5rem;
   font-weight: bold;
-  color: var(--dark-slate-gray);
+  color: var(--turquoise);
   font-family: "Afacad Flux", sans-serif;
   letter-spacing: 0.4rem;
+  text-shadow: 1px 1px 2px var(--orange-peel);
 
 }
 
@@ -34,11 +35,12 @@
 }
 
 .navLink {
-  color: var(--dark-slate-gray);
+  color: var(--orange-peel);
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 2.3rem;
   transition: color 0.3s ease;
   font-family: "Afacad Flux", sans-serif;
+  text-shadow: 1px 1px 3px var(--dark-slate-gray);
 }
 
 .navLink:hover, .navLink.active {

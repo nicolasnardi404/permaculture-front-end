@@ -14,6 +14,7 @@ const client = createClient({
 export default function BlogPosts() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedPost, setSelectedPost] = useState(null);
 
   useEffect(() => {
     async function fetchEntries() {
@@ -44,6 +45,14 @@ export default function BlogPosts() {
       .join("\n");
   }
 
+  const openModal = (post) => {
+    setSelectedPost(post);
+  };
+
+  const closeModal = () => {
+    setSelectedPost(null);
+  };
+
   if (isLoading) {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -51,7 +60,6 @@ export default function BlogPosts() {
   return (
     <>
       <main className={styles.container}>
-        <h2 className={styles.pageTitle}>Blog Posts</h2>
         <div className={styles.blogContainer}>
           {posts.map((post) => {
             const contentText = getContentText(post.fields.articleContent);
@@ -66,17 +74,28 @@ export default function BlogPosts() {
                       (contentText.length > 150 ? "..." : "")
                     : "No content available"}
                 </p>
-                <Link
-                  href={`/blog/${post.sys.id}`}
-                  className={styles.readMoreLink}
+                <button
+                  onClick={() => openModal(post)}
+                  className={styles.readMoreButton}
                 >
                   Read more
-                </Link>
+                </button>
               </article>
             );
           })}
         </div>
       </main>
+      {selectedPost && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h2>{selectedPost.fields.title}</h2>
+            <div>{getContentText(selectedPost.fields.articleContent)}</div>
+            <button onClick={closeModal} className={styles.closeButton}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

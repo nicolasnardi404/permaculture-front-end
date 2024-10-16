@@ -8,7 +8,12 @@ import { saveAs } from "file-saver";
 
 export default function Home() {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      text: "Hey I am cyber planta and I love to talk about permaculture, mushrooms, and witchcraft.",
+      sender: "bot",
+    },
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const [generatedImage, setGeneratedImage] = useState(null);
   const messagesEndRef = useRef(null);
@@ -29,7 +34,8 @@ export default function Home() {
     setInput("");
 
     try {
-      const response = await fetch("http://localhost:8000/chat", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      const response = await fetch(`${apiUrl}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
@@ -124,13 +130,15 @@ export default function Home() {
           </button>
         </form>
       </div>
-      <button
-        onClick={handleGenerateImage}
-        className={styles.generateButton}
-        disabled={isGenerating || isConversationEmpty}
-      >
-        {isGenerating ? "Generating..." : "Generate Image"}
-      </button>
+      {!isConversationEmpty && (
+        <button
+          onClick={handleGenerateImage}
+          className={styles.generateButton}
+          disabled={isGenerating}
+        >
+          {isGenerating ? "Generating..." : "Generate Image"}
+        </button>
+      )}
       {isGenerating && (
         <p className={styles.loadingMessage}>
           Generating image... This may take a moment.

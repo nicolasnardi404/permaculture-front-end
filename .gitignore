@@ -27,6 +27,8 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
+../.env  # Add this line to ignore .env file in the parent directory
 
 # vercel
 .vercel

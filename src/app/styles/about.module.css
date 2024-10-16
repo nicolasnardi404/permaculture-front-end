@@ -49,8 +49,8 @@
 
 .backLink {
   padding: 0.8rem 1.5rem;
-  background-color: var(--turquoise);
-  color: var(--orange-peel);
+  background-color: var(--pistachio);
+  color: var(--dark-slate-gray);
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s ease;
@@ -62,7 +62,8 @@
 }
 
 .backLink:hover {
-  background-color: #1e1f5f; /* Darker shade of resolution-blue */
+  background-color: var(--orange-peel); /* Darker shade of resolution-blue */
+  color: var(--dark-slate-gray);
 }
 
 @media (max-width: 768px) {
