@@ -295,3 +295,11 @@ a.secondary {
   color: var(--orange-peel);
   font-size: 1.2em;
 }
+
+@media (max-width: 768px) {
+  .inputForm{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+  }
+}
