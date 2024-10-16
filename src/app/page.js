@@ -21,6 +21,7 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const [hasChatStarted, setChatStarted] = useState(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -57,10 +58,7 @@ export default function Home() {
     }
   };
 
-  const hasChatStarted = messages.length > 1; // Check if user has sent any messages
-
   const handleGenerateImage = async () => {
-    if (!hasChatStarted) return; // Prevent generation if chat hasn't started
     setIsGenerating(true);
     try {
       const conversation = messages.map((msg) => msg.text).join(" ");
@@ -188,7 +186,7 @@ export default function Home() {
           </button>
         </form>
       </div>
-      {hasChatStarted && (
+      {!isConversationEmpty && (
         <button
           onClick={handleGenerateImage}
           className={styles.generateButton}
