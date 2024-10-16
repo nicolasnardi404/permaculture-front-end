@@ -5,6 +5,7 @@
   color: var(--dark-slate-gray);
   flex-direction: column;
   position: relative;
+  font-style: normal;
 }
 
 .logo {
