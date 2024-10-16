@@ -3,14 +3,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./page.module.css"; // Update this line
+import styles from "./page.module.css";
 import { saveAs } from "file-saver";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Home() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([
     {
-      text: "Hey I am cyber planta and I love to talk about permaculture, mushrooms, and witchcraft.",
+      text: "Hey I am cyber planta and I love to talk about permaculture, mushrooms, and witches.",
       sender: "bot",
     },
   ]);
@@ -18,6 +19,8 @@ export default function Home() {
   const [generatedImage, setGeneratedImage] = useState(null);
   const messagesEndRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -54,7 +57,10 @@ export default function Home() {
     }
   };
 
+  const hasChatStarted = messages.length > 1; // Check if user has sent any messages
+
   const handleGenerateImage = async () => {
+    if (!hasChatStarted) return; // Prevent generation if chat hasn't started
     setIsGenerating(true);
     try {
       const conversation = messages.map((msg) => msg.text).join(" ");
@@ -98,6 +104,58 @@ export default function Home() {
 
   const isConversationEmpty = messages.length === 0;
 
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (hasChatStarted) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+
+    const handleRouteChange = () => {
+      if (
+        hasChatStarted &&
+        !window.confirm(
+          "Are you sure you want to leave? All data will be lost."
+        )
+      ) {
+        window.history.pushState(null, "", pathname);
+        throw "Route change aborted.";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener("popstate", handleRouteChange);
+
+    const originalPush = router.push;
+    const originalReplace = router.replace;
+
+    router.push = (...args) => {
+      if (
+        !hasChatStarted ||
+        window.confirm("Are you sure you want to leave? All data will be lost.")
+      ) {
+        originalPush(...args);
+      }
+    };
+
+    router.replace = (...args) => {
+      if (
+        !hasChatStarted ||
+        window.confirm("Are you sure you want to leave? All data will be lost.")
+      ) {
+        originalReplace(...args);
+      }
+    };
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener("popstate", handleRouteChange);
+      router.push = originalPush;
+      router.replace = originalReplace;
+    };
+  }, [pathname, router, hasChatStarted]);
+
   return (
     <div className={styles.container}>
       <div className={styles.chatContainer}>
@@ -130,7 +188,7 @@ export default function Home() {
           </button>
         </form>
       </div>
-      {!isConversationEmpty && (
+      {hasChatStarted && (
         <button
           onClick={handleGenerateImage}
           className={styles.generateButton}
