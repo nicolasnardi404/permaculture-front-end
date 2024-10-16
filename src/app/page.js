@@ -21,7 +21,7 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const [hasChatStarted, setChatStarted] = useState(false);
+  const [hasChatStarted, setHasChatStarted] = useState(false);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -36,6 +36,7 @@ export default function Home() {
     setIsLoading(true);
     setMessages((prev) => [...prev, { text: input, sender: "user" }]);
     setInput("");
+    setHasChatStarted(true); // Update chat started status
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -187,7 +188,7 @@ export default function Home() {
           </button>
         </form>
       </div>
-      {!isConversationEmpty && (
+      {hasChatStarted && (
         <button
           onClick={handleGenerateImage}
           className={styles.generateButton}
