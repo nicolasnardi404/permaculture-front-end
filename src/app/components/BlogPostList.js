@@ -40,8 +40,8 @@ export default function BlogPostList({ posts }) {
               </h3>
               <p className={styles.postExcerpt}>
                 {contentText
-                  ? contentText.substring(0, 150) +
-                    (contentText.length > 150 ? "..." : "")
+                  ? contentText.substring(0, 200) +
+                    (contentText.length > 200 ? "..." : "")
                   : "No content available"}
               </p>
               <button

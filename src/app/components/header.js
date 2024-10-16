@@ -12,6 +12,10 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
@@ -28,13 +32,13 @@ const Header = () => {
         ☰ menu
       </button>
       <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}>
-        <Link href="/" className={styles.navLink}>
+        <Link href="/" className={styles.navLink} onClick={closeMenu}>
           chat
         </Link>
-        <Link href="/articles" className={styles.navLink}>
+        <Link href="/articles" className={styles.navLink} onClick={closeMenu}>
           blog
         </Link>
-        <Link href="/about" className={styles.navLink}>
+        <Link href="/about" className={styles.navLink} onClick={closeMenu}>
           about
         </Link>
       </nav>

@@ -45,7 +45,7 @@ export default function Bio() {
         </main>
         <footer className={styles.footer}>
           <Link href="/" className={styles.backLink}>
-            BACK TO CHAT
+            back to chat
           </Link>
         </footer>
       </div>

@@ -20,7 +20,9 @@ export default function BlogPostModal({ post, closeModal }) {
     <div className={styles.modal}>
       <div className={styles.modalContent}>
         <h2>{post.fields.title}</h2>
-        <div>{getContentText(post.fields.articleContent)}</div>
+        <div className={styles.textContent}>
+          {getContentText(post.fields.articleContent)}
+        </div>
         <button onClick={closeModal} className={styles.closeButton}>
           Close
         </button>
