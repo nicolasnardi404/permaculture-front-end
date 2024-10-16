@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/header";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Cyber Planta",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   );
