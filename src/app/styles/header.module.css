@@ -61,6 +61,24 @@
 }
 
 @media (max-width: 768px) {
+
+    .logoContainer{
+        flex-direction: column;
+        margin:0px;
+        gap: 0px;
+        flex-direction: center;
+        text-align: center;
+    }
+
+    .logo{
+        margin-top:20px;
+    }
+
+    .title{
+        margin:10px;
+        line-height: 80px;
+    }
+
   .nav {
     display: none;
     flex-direction: column;
