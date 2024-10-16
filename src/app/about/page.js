@@ -38,13 +38,14 @@ export default function Bio() {
               system. Cyber Planta is available for conversations in the chat,
               with the option to generate images that illustrate your
               conversation. Our video section explores the possibilities of AI
-              as a content generator, with the aim of raising awareness about
-              biodiversity and sustainability. The brain of Cyber Planta is
-              constantly being enriched with data on topics like permaculture,
-              bio-agriculture, mushrooms, ecofeminism, and witches history. The
-              system is continuously evolving, so if you encounter any errors,
-              feel free to take a screenshot and email them to
-              nicolasnardi404@gmail.com.
+              as a content generator, aiming to raise awareness about
+              biodiversity and sustainability. The videos are fully created
+              using AI, from generating avatars and lip-syncing to producing
+              images and content.The brain of Cyber Planta is constantly being
+              enriched with data on topics like permaculture, bio-agriculture,
+              mushrooms, ecofeminism, and witches history. The system is
+              continuously evolving, so if you encounter any errors, feel free
+              to take a screenshot and email them to nicolasnardi404@gmail.com.
             </p>
           </section>
         </main>

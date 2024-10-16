@@ -5,7 +5,9 @@
   color: var(--dark-slate-gray);
   flex-direction: column;
   position: relative;
+  font-weight: normal;
   font-style: normal;
+  font-family: 'Afacad Flux';
 }
 
 .logo {
@@ -28,6 +30,7 @@
   font-family: "Afacad Flux", sans-serif;
   letter-spacing: 0.4rem;
   text-shadow: 1px 1px 2px var(--orange-peel);
+  font-style: normal;
 }
 
 .nav {
@@ -46,6 +49,7 @@
   transition: color 0.3s ease;
   font-family: "Afacad Flux", sans-serif;
   text-shadow: 1px 1px 3px var(--dark-slate-gray);
+  font-style: normal;
 }
 
 .navLink:hover, .navLink.active {
@@ -59,6 +63,7 @@
   font-size: 2rem;
   cursor: pointer;
   color: var(--orange-peel);
+  font-style: normal;
 }
 
 @media (max-width: 768px) {
