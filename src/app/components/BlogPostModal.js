@@ -16,16 +16,22 @@ export default function BlogPostModal({ post, closeModal }) {
       .join("\n");
   };
 
+  const handleBackgroundClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} onClick={handleBackgroundClick}>
       <div className={styles.modalContent}>
+        <button onClick={closeModal} className={styles.closeButton}>
+          x
+        </button>
         <h2>{post.fields.title}</h2>
         <div className={styles.textContent}>
           {getContentText(post.fields.articleContent)}
         </div>
-        <button onClick={closeModal} className={styles.closeButton}>
-          Close
-        </button>
       </div>
     </div>
   );

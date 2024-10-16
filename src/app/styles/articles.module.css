@@ -64,7 +64,8 @@
  
   
   .modalContent {
-    background: var(--dark-slate-gray); /* Match the card color */
+    position: relative;
+    background: var(--dark-slate-gray);
     padding: 20px;
     border-radius: 5px;
     max-width: 80%;
@@ -90,21 +91,18 @@
   } 
   
   .closeButton {
-    margin-top: 10px;
-    padding: 5px 10px;
-    background: var(--pistachio);
-    color: var(--dark-slate-gray);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
     border: none;
-    border-radius: 3px;
+    font-size: 1.5rem;
+    color: var(--pistachio);
     cursor: pointer;
-    margin: 10px auto;
-    display: flex;
-    font-size: 0.7em;
   }
 
   .closeButton:hover {
-    background: var(--orange-peel);
-    color: var(--dark-slate-gray);
+    color: var(--orange-peel);
   }
   
   .readMoreButton {
