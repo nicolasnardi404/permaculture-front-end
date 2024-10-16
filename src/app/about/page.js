@@ -31,15 +31,15 @@ export default function Bio() {
               plants, and education to improve access to vital information. I
               love technology and the progress Artificial Intelligence has made
               in recent years, but as a nature lover, I believe we need to find
-              more sustainable solutions, especially as AI's energy demands
+              more sustainable solutions, especially as AI&apos;s energy demands
               increase. cyber planta is a work in progress. Currently, it
               features a few articles wrote by cyber planta, which is also
-              available for free conversations if you'd like to try it out. The
-              brain of cyber planta is constantly being enriched with data on
-              topics like permaculture, bio-agriculture, mushrooms, ecofeminism,
-              and witchcraft. The multi-modal system is continuously evolving,
-              so if you encounter any errors, feel free to take a screenshot and
-              send an email to nadinicoco404@gmail.com.
+              available for free conversations if you&apos;d like to try it out.
+              The brain of cyber planta is constantly being enriched with data
+              on topics like permaculture, bio-agriculture, mushrooms,
+              ecofeminism, and witchcraft. The multi-modal system is
+              continuously evolving, so if you encounter any errors, feel free
+              to take a screenshot and send an email to nadinicoco404@gmail.com.
             </p>
           </section>
         </main>
