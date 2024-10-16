@@ -177,6 +177,7 @@ export default function Home() {
             disabled={isLoading}
             className={styles.input}
           />
+
           <button
             type="submit"
             disabled={isLoading}
@@ -192,13 +193,11 @@ export default function Home() {
           className={styles.generateButton}
           disabled={isGenerating}
         >
-          {isGenerating ? "Generating..." : "Generate Image"}
+          {isGenerating ? "Generating..." : "Generate image based on your chat"}
         </button>
       )}
       {isGenerating && (
-        <p className={styles.loadingMessage}>
-          Generating image... This may take a moment.
-        </p>
+        <p className={styles.loadingMessage}>This may take a moment...</p>
       )}
       {generatedImage && (
         <div className={styles.imageContainer}>

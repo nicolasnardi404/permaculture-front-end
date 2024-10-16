@@ -275,13 +275,23 @@ a.secondary {
 .downloadButton {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
+  background-color: var(--pistachio);
+  color: var(--dark-slate-gray);
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .downloadButton:hover {
-  background-color: #45a049;
+  background-color: var(--turquoise);
+}
+
+.loadingMessage{
+  display: flex;
+  flex-direction: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: var(--orange-peel);
+  font-size: 1.2em;
 }
