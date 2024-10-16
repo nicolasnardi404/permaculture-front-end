@@ -4,6 +4,7 @@
   align-items: center;
   color: var(--dark-slate-gray);
   flex-direction: column;
+  position: relative;
 }
 
 .logo {
@@ -26,12 +27,15 @@
   font-family: "Afacad Flux", sans-serif;
   letter-spacing: 0.4rem;
   text-shadow: 1px 1px 2px var(--orange-peel);
-
 }
 
 .nav {
   display: flex;
   gap: 10rem;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .navLink {
@@ -45,4 +49,37 @@
 
 .navLink:hover, .navLink.active {
   color: var(--turquoise);
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--orange-peel);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--dark-slate-gray);
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .navOpen {
+    display: flex;
+    box-shadow: 0px 0px  5px var(--orange-peel);
+  }
+
+  .menuButton {
+    display: block;
+  }
 }

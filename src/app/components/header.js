@@ -1,9 +1,17 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/header.module.css";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.logoContainer}>
@@ -16,7 +24,10 @@ const Header = () => {
         />
         <h1 className={styles.title}>CYBER PLANTA</h1>
       </div>
-      <nav className={styles.nav}>
+      <button className={styles.menuButton} onClick={toggleMenu}>
+        ☰ menu
+      </button>
+      <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}>
         <Link href="/" className={styles.navLink}>
           chat
         </Link>
