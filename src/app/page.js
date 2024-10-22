@@ -63,7 +63,8 @@ export default function Home() {
     setIsGenerating(true);
     try {
       const conversation = messages.map((msg) => msg.text).join(" ");
-      const response = await fetch("http://localhost:8000/generate-image", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      const response = await fetch(`${apiUrl}/generate-image`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: conversation }),
