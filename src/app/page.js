@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { saveAs } from "file-saver";
 import { usePathname, useRouter } from "next/navigation";
+import Captcha from "./components/Captcha";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -22,6 +23,7 @@ export default function Home() {
   const pathname = usePathname();
   const router = useRouter();
   const [hasChatStarted, setHasChatStarted] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -31,7 +33,7 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!input.trim()) return;
+    if (!input.trim() || !captchaToken) return;
 
     setIsLoading(true);
     setMessages((prev) => [...prev, { text: input, sender: "user" }]);
@@ -156,6 +158,16 @@ export default function Home() {
     };
   }, [pathname, router, hasChatStarted]);
 
+  const handleCaptchaVerify = (token) => {
+    console.log("Captcha verified with token:", token);
+    setCaptchaToken(token);
+  };
+
+  // Add this useEffect to monitor captchaToken changes
+  useEffect(() => {
+    console.log("CaptchaToken state changed:", captchaToken);
+  }, [captchaToken]);
+
   return (
     <div className={styles.container}>
       <div className={styles.chatContainer}>
@@ -170,24 +182,30 @@ export default function Home() {
           ))}
           <div ref={messagesEndRef} />
         </div>
-        <form onSubmit={handleSubmit} className={styles.inputForm}>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
-            disabled={isLoading}
-            className={styles.input}
-          />
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className={styles.sendButton}
-          >
-            {isLoading ? "Sending..." : "Send"}
-          </button>
-        </form>
+        {!captchaToken ? (
+          <div className={styles.captcha}>
+            <Captcha onVerify={handleCaptchaVerify} />
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className={styles.inputForm}>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Type your message..."
+              disabled={isLoading}
+              className={styles.input}
+            />
+            <button
+              type="submit"
+              disabled={isLoading}
+              className={styles.sendButton}
+            >
+              {isLoading ? "Sending..." : "Send"}
+            </button>
+          </form>
+        )}
       </div>
       {hasChatStarted && (
         <button
