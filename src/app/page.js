@@ -24,6 +24,8 @@ export default function Home() {
   const router = useRouter();
   const [hasChatStarted, setHasChatStarted] = useState(false);
   const [captchaToken, setCaptchaToken] = useState(null);
+  const [sessionId, setSessionId] = useState(null);
+  const [clientId, setClientId] = useState(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -31,25 +33,41 @@ export default function Home() {
 
   useEffect(scrollToBottom, [messages]);
 
+  useEffect(() => {
+    // Generate or retrieve client ID when component mounts
+    const storedClientId = localStorage.getItem("clientId");
+    if (storedClientId) {
+      setClientId(storedClientId);
+    } else {
+      const newClientId = crypto.randomUUID(); // Built-in UUID generator
+      localStorage.setItem("clientId", newClientId);
+      setClientId(newClientId);
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!input.trim() || !captchaToken) return;
+    if (!input.trim() || !captchaToken || !clientId) return;
 
     setIsLoading(true);
     setMessages((prev) => [...prev, { text: input, sender: "user" }]);
     setInput("");
-    setHasChatStarted(true); // Update chat started status
+    setHasChatStarted(true);
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
       const response = await fetch(`${apiUrl}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({
+          message: input,
+          session_id: sessionId,
+          client_id: clientId,
+        }),
       });
       const data = await response.json();
+      setSessionId(data.session_id); // Store session ID for subsequent requests
       setMessages((prev) => [...prev, { text: data.response, sender: "bot" }]);
-      console.log(data);
     } catch (error) {
       console.error("Error:", error);
       setMessages((prev) => [
