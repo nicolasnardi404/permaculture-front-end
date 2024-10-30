@@ -6,8 +6,6 @@
   <p>
     <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js">
     <img src="https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react" alt="React">
-    <img src="https://img.shields.io/badge/CSS_Modules-✨-green?style=for-the-badge" alt="CSS Modules">
-    <img src="https://img.shields.io/badge/Cloudflare%20Turnstile-F38020?style=for-the-badge&logo=cloudflare" alt="Cloudflare Turnstile">
   </p>
   
   <p>A React-based web application built with Next.js, providing an intuitive interface for interacting with the AI chatbot.</p>
