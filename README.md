@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img width="871" alt="Cyber Planta Interface" src="https://github.com/user-attachments/assets/9898c4a7-5247-4d52-9a3a-57a527bb89c7" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 
-## Getting Started
+  <h1>💬 AI Chatbot Interface</h1>
+  
+  <p>
+    <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js">
+    <img src="https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react" alt="React">
+    <img src="https://img.shields.io/badge/CSS_Modules-✨-green?style=for-the-badge" alt="CSS Modules">
+    <img src="https://img.shields.io/badge/Cloudflare%20Turnstile-F38020?style=for-the-badge&logo=cloudflare" alt="Cloudflare Turnstile">
+  </p>
+  
+  <p>A React-based web application built with Next.js, providing an intuitive interface for interacting with the AI chatbot.</p>
+</div>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">💬</td>
+      <td><strong>Real-time Chat</strong><br/>Interactive messaging with history</td>
+      <td align="center">🎨</td>
+      <td><strong>Image Generation</strong><br/>AI-powered visual creation</td>
+    </tr>
+    <tr>
+      <td align="center">🔒</td>
+      <td><strong>Cloudflare Turnstile</strong><br/>Secure user verification</td>
+      <td align="center">💾</td>
+      <td><strong>Session Management</strong><br/>Persistent user sessions</td>
+    </tr>
+    <tr>
+      <td align="center">📱</td>
+      <td><strong>Responsive Design</strong><br/>Optimized for all devices</td>
+    </tr>
+  </table>
+</div>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technical Stack
 
-## Learn More
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">⚛️</td>
+      <td><strong>Framework</strong><br/>Next.js with React</td>
+      <td align="center">🎨</td>
+      <td><strong>Styling</strong><br/>CSS Modules with custom theming</td>
+    </tr>
+    <tr>
+      <td align="center">🔐</td>
+      <td><strong>Security</strong><br/>Cloudflare Turnstile</td>
+    </tr>
+  </table>
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧩 Key Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Chat Interface**: Real-time message display with automatic scrolling
+- **Image Generation**: On-demand AI image creation with download capability
+- **Captcha**: User verification before chat initiation
