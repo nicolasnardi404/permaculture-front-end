@@ -225,7 +225,7 @@ export default function Home() {
           </form>
         )}
       </div>
-      {hasChatStarted && (
+      {/* {hasChatStarted && (
         <button
           onClick={handleGenerateImage}
           className={styles.generateButton}
@@ -251,7 +251,7 @@ export default function Home() {
             Download Image
           </button>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
